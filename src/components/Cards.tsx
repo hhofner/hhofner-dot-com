@@ -3,12 +3,33 @@ import { render } from 'react-dom'
 import { motion } from 'framer-motion'
 import move from 'lodash-move'
 
-const CARD_COLORS = ['#266678', '#cb7c7a', ' #36a18b', '#cda35f', '#747474']
+interface Project {
+  title: string
+  description: string
+  live: string
+  code: string
+  color: string
+  icon?: string
+  image?: string
+}
+
+const projects: Project[] = [
+  {
+    title: "My GPT",
+    description: "A small ChatGPT client written in Vue. Used Tailwindcss and Vite.",
+    live: "https;//my-gpt.net",
+    code: "",
+    color: "#cda35f"
+  }
+]
+
+// const CARD_COLORS = ['#266678', '#cb7c7a', ' #36a18b', '#cda35f', '#747474']
+const CARD_COLORS = ['#cda35f', '#747474']
 const CARD_OFFSET = 10
 const SCALE_FACTOR = 0.06
 
 export default function CardStack() {
-  const [cards, setCards] = React.useState(CARD_COLORS)
+  const [cards, setCards] = React.useState(projects)
   const moveToEnd = (from) => {
     setCards(move(cards, from, cards.length - 1))
   }
@@ -21,11 +42,11 @@ export default function CardStack() {
 
           return (
             <motion.li
-              key={color}
-              className="flex items-end p-6"
+              key={color.title}
+              className="flex flex-col justify-end p-6"
               style={{
                 ...cardStyle,
-                backgroundColor: color,
+                backgroundColor: color.color,
                 cursor: canDrag ? 'grab' : 'auto',
               }}
               animate={{
@@ -40,7 +61,12 @@ export default function CardStack() {
               }}
               onDragEnd={() => moveToEnd(index)}
             >
-              <h3 className="text-3xl">Hello</h3>
+              <h3 className="text-3xl">{color.title}</h3>
+              <p>{color.description}</p>
+              <div>
+                <a href={color.live}>live</a>
+                <a href={color.code}>code</a>
+              </div>
             </motion.li>
           )
         })}
