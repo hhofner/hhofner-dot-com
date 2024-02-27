@@ -1,34 +1,53 @@
-:root {
-	--shadow-color: 0deg 0% 63%;
-	--shadow-elevation-medium:
-		0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
-	    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
-	    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
-	    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
+body {
+	padding: 8rem;
 }
 
-#my-links {
-	width: 100%;
+h1 {
+	font-size: 6rem;
+}
+
+p {
+	font-size: 1.5rem;
+}
+
+button {
 	display: flex;
-	justify-content: center;
 	gap: 1rem;
-	margin-bottom: 0;
-	margin-top: 2rem;
+	margin: 1rem 0;
 }
 
-.projects-container {
-	overflow-x: scroll;
-}
-
-.projects {
+a {
 	display: flex;
-	gap: 2rem;
-	padding: 0.5rem;
+	align-items: center;
+	font-family: sans-serif;
+	text-decoration: none;
+	color: #000;
+	opacity: 0.7;
 }
 
-.card {
-	border-radius: 15px;
-	box-shadow: var(--shadow-elevation-medium);
-	padding: 0.5rem;
-	min-width: 24rem;
+a > svg {
+	transition: all 0.3s ease;
+}
+
+a:hover > svg {
+	transform: translateX(5px);
+}
+
+svg {
+	height: 100%;
+	width: 18px;
+}
+
+.svg-check {
+	display: none;
+}
+
+@media (max-width: 720px) {
+	body {
+		padding: 3rem;
+	}
+	h1 { font-size: 3rem; }
+	p {
+		font-size: 1.3rem;
+	}
 }
