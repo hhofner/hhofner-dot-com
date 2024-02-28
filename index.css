@@ -22,6 +22,14 @@ h1 {
 	font-size: 6rem;
 }
 
+h2 {
+	font-size: 4.5rem;
+}
+
+h3 {
+	font-size: 2rem;
+}
+
 p {
 	font-size: 1.5rem;
 }
@@ -32,7 +40,7 @@ button {
 	margin: 1rem 0;
 }
 
-a {
+a:not(.project-link) {
 	display: flex;
 	align-items: center;
 	font-family: sans-serif;
@@ -41,7 +49,7 @@ a {
 	opacity: 0.7;
 }
 
-a > svg {
+a:not(.project-link) > svg {
 	transition: all 0.3s ease;
 }
 
@@ -58,11 +66,63 @@ svg {
 	display: none;
 }
 
+section {
+	margin: 1.5rem 0;
+}
+
+.project-container {
+	border: 1px solid aliceblue;
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 15px;
+	box-shadow: 0px 0px 9px 0px #AFE0EA; 
+	transition: all 0.3s;
+}
+
+.project-container:hover {
+	border-width: 2.5px;
+}
+
+.project-container > a {
+	text-decoration: none;
+	color: var(--text);
+}
+
+.description {
+	font-size: 16px;
+	font-family: sans-serif;
+}
+
+.project-title {
+	font-weight: 700;
+}
+
+.projects {
+	opacity: 0.9;
+	@supports (background-clip:text) or (-webkit-background-clip:text) {
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      background-image: url(https://media.giphy.com/media/xULW8Fw2ZhznUptrYA/giphy.gif);
+      background-size: cover;
+      background-position: center;
+    }
+}
+
 @media (max-width: 720px) {
 	body {
 		padding: 3rem;
 	}
 	h1 { font-size: 3rem; }
+	h2 {
+		font-size: 2.3rem;
+	}
+	h3 {
+		font-size: 1.2rem;
+	}
+	.description {
+		font-size: 12px;
+	}
 	p {
 		font-size: 1.3rem;
 	}
